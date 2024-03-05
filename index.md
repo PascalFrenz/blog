@@ -1,5 +1,5 @@
 ---
-title: Welcome to my blog
+title: Engineered Chaos
 ---
 
-Hi there and welcome. I am working on some content, come back in a couple of days and maybe there will be something new published here.
+Hi there and welcome to Engineered Chaos. This blog will be dedicated to things I stumble upon while working as a software developer in tech. Hope you enjoy.
