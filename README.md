@@ -1,3 +1,3 @@
 # blog
 
-Yeah, so this is the readme of my blog.. what are you waiting for, go read it!
+Yeah, so this is the readme of my blog.. what are you waiting for, [go read it!](https://pascalfrenz.github.io/blog/)
