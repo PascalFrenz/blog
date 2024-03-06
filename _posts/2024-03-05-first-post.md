@@ -1,6 +1,13 @@
 ---
-title: "The first post"
+title: "Merging partial logs with FluentBit on AWS ECS Fargate"
 date: 2024-03-05
+tags:
+- AWS
+- ECS
+- Fargate
+- FluentBit
+- Datadog
+- Logging
 ---
 
-So this is the first post. Will be very boring. I am still looking into the whole Github Pages thing..
+Still working on the content.. This will be up some time soon.
