@@ -1,0 +1,15 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BasicLayout from "../layouts/BasicLayout.astro";
+---
+
+<!doctype html>
+<BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+    <div class="divider">
+        <h1 class="text-2xl">Welcome to Engineered Chaos</h1>
+    </div>
+    <p class="mt-8">
+        This blog is dedicated to things I stumble upon while
+        working as a software developer in tech. Hope you enjoy!
+    </p>
+</BasicLayout>
