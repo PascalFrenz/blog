@@ -13,9 +13,9 @@ const posts = (await getCollection('blog')).sort(
 		<div>
 			{
 				posts.map((post) => {
-					return <a href={`/blog/${post.slug}/`}>
+					return <a href={`/blog/blog/${post.slug}/`}>
 						<div class="card lg:card-side h-96 bg-base-300 shadow-xl">
-							<figure><img src={post.data.image} alt={post.data.title} />
+							<figure><img src={'/blog' + post.data.image} alt={post.data.title} />
 							</figure>
 							<div class="card-body">
 								<h2 class="card-title">

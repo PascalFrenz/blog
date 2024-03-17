@@ -25,7 +25,7 @@ const { title, description, pubDate, updatedDate, image }: Props = Astro.props;
 
 				<div class="relative rounded-xl overflow-auto mb-8">
 					<div class="text-center rounded-lg overflow-hidden w-full mx-auto">
-						{image && <figure><img class="object-cover h-96 w-full" src={image} alt="" /></figure>}
+						{image && <figure><img class="object-cover h-96 w-full" src={'/blog' + image} alt="" /></figure>}
 					</div>
 				</div>
 
