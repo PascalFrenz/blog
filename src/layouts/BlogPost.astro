@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, image }: Props = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+
+	<body>
+		<div class="h-screen w-full flex flex-col justify-between">
+			<Header />
+			<main class="mb-auto container mx-auto w-6/8 mt-8">
+				<div class="flex flex-row justify-start mb-4">
+					<a href="../">👈 Back to Overview</a>
+				</div>
+
+				<div class="relative rounded-xl overflow-auto mb-8">
+					<div class="text-center rounded-lg overflow-hidden w-full mx-auto">
+						{image && <figure><img class="object-cover h-96 w-full" src={image} alt="" /></figure>}
+					</div>
+				</div>
+
+				<div class="flex flex-row justify-between">
+					<FormattedDate date={pubDate} />
+					{updatedDate && <div>Last updated on <FormattedDate date={updatedDate} /></div>}
+				</div>
+
+				<article>
+					<div class="divider">
+						<h1 class="text-2xl font-bold">{title}</h1>
+					</div>
+
+					<div class="flex flex-col tracking-wide">
+						<!-- This inserts the content into the layout -->
+						<slot />
+					</div>
+				</article>
+			</main>
+			<Footer />
+		</div>
+	</body>
+</html>

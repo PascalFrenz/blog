@@ -1,0 +1,27 @@
+---
+import BasicLayout from "../layouts/BasicLayout.astro";
+
+const title = "About Me"
+---
+
+<BasicLayout title={title} description="Who I am and what I do">
+	<div class="divider">
+		<h1 class="text-2xl font-bold">{title}</h1>
+	</div>
+	<div class="flex flex-col tracking-wide">
+		<p class="mb-2">
+			I am Pascal, a software developer from Hamburg, Germany. I write code since I was 12 years old and to
+			this day I still enjoy it. I am constantly learning new things and embarking on new adventures.
+		</p>
+		<p class="mb-2">
+			My go-to languages are Typescript and Java, I did write quite a bit of Python some time ago too.
+			I try to challenge myself with new languages every now and then and have already tried
+			Rust, Haskell, C, C++, Kotlin and even Pascal - how ironic!
+		</p>
+		<p class="mb-2">
+			I have worked on all frontiers of software development. I developed serverless backends using AWS Lambda
+			and Python or Typescript, designed Frontends with both React and Angular and did a lot of DevOps work,
+			mainly designing CI/CD processes on Gitlab and Bitbucket.
+		</p>
+	</div>
+</BasicLayout>
