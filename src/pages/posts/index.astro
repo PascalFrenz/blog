@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BasicLayout from "../../layouts/BasicLayout.astro";
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection('posts')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
 );
 ---
@@ -13,7 +13,7 @@ const posts = (await getCollection('blog')).sort(
 		<div>
 			{
 				posts.map((post) => {
-					return <a href={`/blog/blog/${post.slug}/`}>
+					return <a href={`/blog/posts/${post.slug}/`}>
 						<div class="card lg:card-side h-96 bg-base-300 shadow-xl">
 							<figure><img src={'/blog' + post.data.image} alt={post.data.title} />
 							</figure>

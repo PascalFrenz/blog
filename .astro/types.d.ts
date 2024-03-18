@@ -135,13 +135,13 @@ declare module 'astro:content' {
 	>;
 
 	type ContentEntryMap = {
-		"blog": {
+		"posts": {
 "aws-fargate-merge-logs-fluentbit.md": {
 	id: "aws-fargate-merge-logs-fluentbit.md";
   slug: "aws-fargate-merge-logs-fluentbit";
   body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
+  collection: "posts";
+  data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
 };
 

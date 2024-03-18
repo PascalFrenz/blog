@@ -1,0 +1,37 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import BasicLayout from "./BasicLayout.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+type Props = CollectionEntry<'posts'>['data'];
+
+const { title, description, pubDate, updatedDate, image }: Props = Astro.props;
+---
+
+<BasicLayout title={title} description={description}>
+	<div class="flex flex-row justify-start mb-4">
+		<a href="../">👈 Back to Overview</a>
+	</div>
+
+	<div class="relative rounded-xl overflow-auto mb-8">
+		<div class="text-center rounded-lg overflow-hidden w-full mx-auto">
+			{image && <figure><img class="object-cover h-96 w-full" src={'/blog' + image} alt="" /></figure>}
+		</div>
+	</div>
+
+	<div class="flex flex-row justify-between">
+		<FormattedDate date={pubDate} />
+		{updatedDate && <div>Last updated on <FormattedDate date={updatedDate} /></div>}
+	</div>
+
+	<article>
+		<div class="divider">
+			<h1 class="text-2xl font-bold">{title}</h1>
+		</div>
+
+		<div class="flex flex-col tracking-wide">
+			<!-- This inserts the content into the layout -->
+			<slot />
+		</div>
+	</article>
+</BasicLayout>
