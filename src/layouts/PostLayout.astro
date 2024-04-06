@@ -25,8 +25,8 @@ const { title, description, pubDate, updatedDate, image }: Props = Astro.props;
 	</div>
 
 
-	<article class="prose lg:prose-xl">
-		<h1 class="w-full">{title}</h1>
+	<article class="prose lg:prose-xl w-full max-w-none">
+		<h1>{title}</h1>
 		<div class="flex flex-col tracking-wide">
 			<!-- This inserts the content into the layout -->
 			<slot />
