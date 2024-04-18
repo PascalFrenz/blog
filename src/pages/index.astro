@@ -1,13 +1,29 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import {getCollection} from 'astro:content';
+import {SITE_TITLE, SITE_DESCRIPTION} from '../consts';
 import BasicLayout from "../layouts/BasicLayout.astro";
+import PostPreview from "../components/PostPreview.astro";
+
+const latestThreePosts = (await getCollection('posts'))
+    .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+    .slice(0, 3)
 ---
 
 <!doctype html>
 <BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-    <h1 class="text-2xl">Welcome to Engineered Chaos</h1>
-    <p class="mt-8">
-        This blog is dedicated to things I stumble upon while
-        working as a software developer in tech. Hope you enjoy!
-    </p>
+    <div class="flex flex-col justify-around h-full">
+        <span class="divider"><h1 class="text-4xl">Welcome to Engineered Chaos</h1></span>
+        <p class="mt-8">
+            This blog is dedicated to things I stumble upon while
+            working as a software developer in tech. Hope you enjoy!
+        </p>
+
+        <span class="divider mt-16 mb-8"><h1 class="text-2xl">Latest Blog Posts</h1></span>
+
+        <div>
+            {latestThreePosts.map((post) =>
+                    <PostPreview post={post} showNewBadge={post.data.title === latestThreePosts[0].data.title} />
+            )}
+        </div>
+    </div>
 </BasicLayout>

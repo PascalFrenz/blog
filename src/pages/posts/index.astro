@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BasicLayout from "../../layouts/BasicLayout.astro";
+import PostPreview from "../../components/PostPreview.astro";
 
 const posts = (await getCollection('posts')).sort(
 	(a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
@@ -11,26 +12,7 @@ const posts = (await getCollection('posts')).sort(
 <BasicLayout title="Blog Post Overview" description="An overview of all blog posts">
 	<section>
 		<div>
-			{
-				posts.map((post) => {
-					return <a href={`/blog/posts/${post.slug}/`}>
-						<div class="card lg:card-side h-96 bg-base-300 shadow-xl">
-							<figure><img src={'/blog' + post.data.image} alt={post.data.title} />
-							</figure>
-							<div class="card-body">
-								<h2 class="card-title">
-									{post.data.title}
-									{post.data.title === posts[0].data.title ? <div class="badge badge-secondary">NEW</div> : <div></div>}
-								</h2>
-								<p>{post.data.description}</p>
-								<div class="card-actions justify-end">
-									{post.data.tags.map(it => (<div class="badge badge-outline">{it}</div>))}
-								</div>
-							</div>
-						</div>
-					</a>
-				})
-			}
+			{posts.map((post) => <PostPreview post={post} showNewBadge={post.data.title === posts[0].data.title} />)}
 		</div>
 	</section>
 </BasicLayout>

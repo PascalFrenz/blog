@@ -1,0 +1,20 @@
+---
+const { post, showNewBadge, ...props } = Astro.props;
+---
+
+<a href={`/blog/posts/${post.slug}/`}>
+    <div class="card lg:card-side h-96 bg-base-300 shadow-xl">
+        <figure><img src={'/blog' + post.data.image} alt={post.data.title} />
+        </figure>
+        <div class="card-body">
+            <h2 class="card-title">
+                {post.data.title}
+                {showNewBadge ? <div class="badge badge-secondary">NEW</div> : <div></div>}
+            </h2>
+            <p>{post.data.description}</p>
+            <div class="card-actions justify-end">
+                {post.data.tags.map(it => (<div class="badge badge-outline">{it}</div>))}
+            </div>
+        </div>
+    </div>
+</a>
