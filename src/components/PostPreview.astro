@@ -1,5 +1,5 @@
 ---
-const { post, showNewBadge, ...props } = Astro.props;
+const { post, showNewBadge} = Astro.props;
 ---
 
 <a href={`/blog/posts/${post.slug}/`}>
@@ -13,7 +13,7 @@ const { post, showNewBadge, ...props } = Astro.props;
             </h2>
             <p>{post.data.description}</p>
             <div class="card-actions justify-end">
-                {post.data.tags.map(it => (<div class="badge badge-outline">{it}</div>))}
+                {post.data.tags.map((it: string) => (<div class="badge badge-outline">{it}</div>))}
             </div>
         </div>
     </div>
