@@ -5,7 +5,7 @@ import BasicLayout from "../layouts/BasicLayout.astro";
 import PostPreview from "../components/PostPreview.astro";
 
 const latestThreePosts = (await getCollection('posts'))
-    .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
     .slice(0, 3)
 ---
 
@@ -20,7 +20,7 @@ const latestThreePosts = (await getCollection('posts'))
 
         <span class="divider mt-16 mb-8"><h1 class="text-2xl">Latest Blog Posts</h1></span>
 
-        <div>
+        <div class="flex flex-col gap-8 mb-8">
             {latestThreePosts.map((post) =>
                     <PostPreview post={post} showNewBadge={post.data.title === latestThreePosts[0].data.title} />
             )}
