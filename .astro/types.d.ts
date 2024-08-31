@@ -136,6 +136,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"posts": {
+"aws-ecs-codedeploy.md": {
+	id: "aws-ecs-codedeploy.md";
+  slug: "aws-ecs-codedeploy";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 "aws-fargate-merge-logs-fluentbit.md": {
 	id: "aws-fargate-merge-logs-fluentbit.md";
   slug: "aws-fargate-merge-logs-fluentbit";
@@ -153,5 +160,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("./../src/content/config.js");
+	export type ContentConfig = typeof import("../src/content/config.js");
 }
