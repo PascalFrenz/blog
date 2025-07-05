@@ -150,6 +150,13 @@ declare module 'astro:content' {
   collection: "posts";
   data: InferEntrySchema<"posts">
 } & { render(): Render[".md"] };
+"installing_pg_repack.md": {
+	id: "installing_pg_repack.md";
+  slug: "installing_pg_repack";
+  body: string;
+  collection: "posts";
+  data: InferEntrySchema<"posts">
+} & { render(): Render[".md"] };
 };
 
 	};
